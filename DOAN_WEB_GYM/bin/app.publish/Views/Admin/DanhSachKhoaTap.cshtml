@@ -1,0 +1,116 @@
+﻿@model IEnumerable<DOAN_WEB_GYM.Models.KhoaTap>
+@{ ViewBag.Title = "DanhSachKhoaTap";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml"; }
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <meta charset="UTF-8">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="~/Scripts/lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+    <!--@*=========================*@-->    @*  <link href="@Url.Content("~/Content/css/style.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.Content("~/Content/font-awesomemin.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.Content("~/Content/css/style.css.map")" rel="stylesheet" type="text/css" />*@
+    <link href="~/Content/css/style1.css" rel="stylesheet" />
+    <link href="~/Content/css/style2.css" rel="stylesheet" />
+    <link href="~/Content/font-awesomemin.css" rel="stylesheet" />
+
+</head>
+<body>
+    <!--**********************************
+           Content body start
+       ***********************************-->
+    <div class="content-body">
+
+        <div class="row page-titles mx-0">
+            <div class="col p-md-0">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+                </ol>
+            </div>
+        </div>
+        <!-- row -->
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Data Table</h4>
+                            <div class="table-responsive">
+                                <table style="width:100%" class="table table-striped table-bordered zero-configuration">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:30%">Hình Ảnh</th>
+                                            <th style="width:11%">Tên Khóa Tập</th>
+                                            <th style="width: 11%">Tên PT </th>
+                                            <th style="width:11%">Ngày Bắt Đầu</th>
+                                            <th style="width:11%">Ngày Kết Thúc</th>
+                                            <th style="width:11%">Giá Tiền</th>
+                                            <th style="width:11%">TÙY CHỌN</th>
+
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td><img src="@item.urlImg" alt="hinh thumbnail" style="width:30%" /></td>
+                                                <td>@Html.DisplayFor(modelItem => item.nameCourse)</td>
+                                                @* <td>@Html.DisplayFor(modelItem => item.PT.namePT)</td>*@
+                                                @if (item.idPT > 0)
+                                                {
+                                                    <td> @Html.DisplayFor(modelItem => item.PT.namePT)</td>
+
+
+                                                }
+                                                else
+                                                {
+                                                    <td> Trống</td>
+
+                                                }
+                                                <td>@Html.DisplayFor(modelItem => item.startDay)</td>
+                                                <td>@Html.DisplayFor(modelItem => item.dueDay)</td>
+                                                <td>@Html.DisplayFor(modelItem => item.price)</td>
+                                                @* <td>@Html.DisplayFor(modelItem => item.descriptionKT)</td>*@
+                                                <td>
+                                                    @Html.ActionLink("Edit", "SuaKT", new { id = item.idCourse }) |
+                                                    @*       @Html.ActionLink("Delete", "XoaKT", new { id = item.idCourse })*@
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+
+
+                                    <tfoot>
+                                        <tr>
+                                            <th style="width:30%">Hình Ảnh</th>
+                                            <th style="width:11%">Tên Khóa Tập</th>
+                                            <th style="width: 11%">Tên PT </th>
+                                            <th style="width:11%">Ngày Bắt Đầu</th>
+                                            <th style="width:11%">Ngày Kết Thúc</th>
+                                            <th style="width:11%">Giá Tiền</th>
+                                            <th style="width:11%">TÙY CHỌN</th>
+
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #/ container -->
+    </div>
+    <!--**********************************
+        Content body end
+    ***********************************-->
+</body>

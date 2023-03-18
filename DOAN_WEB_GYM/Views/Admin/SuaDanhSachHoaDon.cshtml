@@ -1,0 +1,132 @@
+﻿@model DOAN_WEB_GYM.Models.DangKyKhoaTap
+
+@{
+    ViewBag.Title = "SuaDanhSachHoaDon";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var ttdshd = (List<ChiTietDangKyKhoaTap>)ViewData["ttctdkkt"];
+}
+
+< head>
+<meta name="viewport" content="width=device-width" />
+<title></title>
+<meta charset="UTF-8">
+
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+<!-- Flaticon Font -->
+<link href="~/Scripts/lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+
+
+<!--@*=========================*@-->
+@*   <link href="@Url.Content("~/Content/css/style.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/font-awesomemin.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/style.css.map")" rel="stylesheet" type="text/css" />*@
+<link href="~/Content/css/style1.css" rel="stylesheet" />
+<link href="~/Content/css/style2.css" rel="stylesheet" />
+<link href="~/Content/font-awesomemin.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!--**********************************
+          Content body start
+      ***********************************-->
+    <div class="content-body">
+
+        <div class="row page-titles mx-0">
+            <div class="col p-md-0">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+                </ol>
+            </div>
+        </div>
+        <!-- row -->
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-validation">
+                                <form class="form-valide" action="#" method="post">
+                                    <h2>Cập Nhật Trạng Thái</h2>
+
+                                    @using (Html.BeginForm())
+                                    {
+                                        @Html.AntiForgeryToken()
+
+                                        <div class="form-horizontal">
+
+                                            <hr />
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                            @Html.HiddenFor(model => model.idInvoice)
+
+                                            <div class="form-group">
+                                                Ngày đăng ký
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.idDate, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.idDate, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                Trang thái
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.status, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.status, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-md-offset-2 col-md-10">
+                                                    <input type="submit" value="Save" class="btn btn-default" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </form>
+                                <h4 class="card-title"> </h4>
+                                <h3>Chi Tiết Hóa Đơn</h3>
+
+
+
+                                <div class="table-responsive">
+                                    <table style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:25%"><h3>Khóa Tập Đã Đăng Ký </h3></th>
+                                                <th style="width:25%"><h3>Giá </h3> </th>
+                                                <th style="width:25%"><h3>Thời Gian </h3> </th>
+                                                <th style="width:25%"><h3>Tên Câu Lạc Bộ </h3> </th>
+                                            </tr>
+
+                                        </thead>
+                                        <hr />
+                                        <tbody>
+                                            @foreach (var item in ttdshd)
+                                            {
+                                                <tr>
+                                                    <td> <strong><b><h6> @item.KhoaTap.nameCourse</h6></b></strong></td>
+                                                    <td> <strong><b><h6> @item.price</h6></b></strong></td>
+                                                    <td> <strong><b><h6> @item.KhoaTap.ThoiGian.timeStartEnd</h6></b></strong></td>
+                                                    <td> <strong><b><h6> @item.KhoaTap.CLB.CLBName</h6></b></strong></td>
+                                                </tr>
+                                            }
+                                        </tbody>
+
+                                    </table>
+                                    <hr />
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+

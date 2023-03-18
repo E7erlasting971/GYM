@@ -1,0 +1,99 @@
+﻿@model DOAN_WEB_GYM.Models.TinTuc
+
+@{
+    ViewBag.Title = "XoaCLB";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <meta charset="UTF-8">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="~/Scripts/lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+
+
+    <!--@*=========================*@-->
+    @*   <link href="@Url.Content("~/Content/css/style.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.Content("~/Content/font-awesomemin.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.Content("~/Content/css/style.css.map")" rel="stylesheet" type="text/css" />*@
+    <link href="~/Content/css/style1.css" rel="stylesheet" />
+    <link href="~/Content/css/style2.css" rel="stylesheet" />
+    <link href="~/Content/font-awesomemin.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content-body">
+
+        <div class="row page-titles mx-0">
+            <div class="col p-md-0">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+                </ol>
+            </div>
+        </div>
+        <!-- row -->
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-validation">
+                                <form class="form-valide" action="#" method="post">
+                                    <h2>Xóa Tin Tức</h2>
+
+                                    <h3>Bạn Có Chắc Là Xóa Nó Chứ ?</h3>
+                                    <div>
+                                        <dl class="dl-horizontal">
+                                            <dt>
+                                                Chủ Đề
+                                            </dt>
+
+                                            <dd>
+                                                @Html.DisplayFor(model => model.Title)
+                                            </dd>
+
+                                            <dt>
+                                                Mô Tả
+                                            </dt>
+
+                                            <dd>
+                                                @Html.DisplayFor(model => model.description)
+                                            </dd>
+                                            <dt>
+                                                Hình
+                                            </dt>
+
+                                            <dd>
+                                                @Html.DisplayFor(model => model.urlImg)
+                                            </dd>
+                                          
+
+
+
+                                        </dl>
+
+                                        @using (Html.BeginForm())
+                                        {
+                                            @Html.AntiForgeryToken()
+
+                                            <div class="form-actions no-color">
+                                                <input type="submit" value="Delete" class="btn btn-default" /> |
+                                                @Html.ActionLink("Trở về danh sách", "DanhSachTinTuc")
+                                            </div>
+                                        }
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+

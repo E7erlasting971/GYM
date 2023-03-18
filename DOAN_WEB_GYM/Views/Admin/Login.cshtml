@@ -1,0 +1,86 @@
+﻿@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <meta charset="UTF-8">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="~/Scripts/lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+    <!--@*=========================*@-->
+<link href="~/Content/css/style1.css" rel="stylesheet" />
+<link href="~/Content/css/style2.css" rel="stylesheet" />
+<link href="~/Content/font-awesomemin.css" rel="stylesheet" />
+</head>
+<body>
+    <body class="h-100">
+
+        <!--*******************
+        Preloader start
+    ********************-->
+        <div id="preloader">
+            <div class="loader">
+                <svg class="circular" viewBox="25 25 50 50">
+                    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+                </svg>
+            </div>
+        </div>
+        <!--*******************
+        Preloader end
+    ********************-->
+
+
+
+
+
+        <div class="login-form-bg h-100">
+            <div class="container h-100">
+                <div class="row justify-content-center h-100">
+                    <div class="col-xl-6">
+                        <div class="form-input-content">
+                            <div class="card login-form mb-0">
+                                <div class="card-body pt-5">
+                                    <a class="text-center" href=""> <h4>WibuGym</h4></a>
+                                    <h4 style="color:red; text-align:center">@ViewBag.Thongbao</h4>
+
+                                    <form class="mt-5 mb-5 login-input" method="post">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Enter Admin Account" name="account">
+                                            @ViewData["Loi1"]
+                                            <input type="password" class="form-control" placeholder="Enter Admin Password" name="password">
+                                            @ViewData["Loi2"]
+                                        </div>
+                                        <button class="btn login-form__btn submit w-100" type="submit">Sign In</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <script src="~/Content/plugins/common/common.min.js"></script>
+        <script src="~/Content/js/custom.min.js"></script>
+     
+
+        <script src="~/Content/js/settings.js"></script>
+ 
+        <script src="~/Content/js/gleek.js"></script>
+        <script src="~/Content/js/styleSwitcher.js"></script>
+    </body>
+</body>
+</html>
+
+
+

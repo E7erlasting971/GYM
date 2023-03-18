@@ -1,0 +1,215 @@
+﻿@model DOAN_WEB_GYM.Models.KhoaTap
+
+@{ ViewBag.Title = "ThemKhoaTap";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml"; }
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <meta charset="UTF-8">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="~/Scripts/lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+    <!--@*=========================*@-->
+    @* <link href="@Url.Content("~/Content/css/style.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.Content("~/Content/font-awesomemin.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.Content("~/Content/css/style.css.map")" rel="stylesheet" type="text/css" />*@
+    <link href="~/Content/css/style1.css" rel="stylesheet" />
+    <link href="~/Content/css/style2.css" rel="stylesheet" />
+    <link href="~/Content/font-awesomemin.css" rel="stylesheet" />
+
+
+
+
+</head>
+
+<body>
+    <!--**********************************
+           Content body start
+       ***********************************-->
+    <div class="content-body">
+
+        <div class="row page-titles mx-0">
+            <div class="col p-md-0">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+                </ol>
+            </div>
+        </div>
+        <!-- row -->
+
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-validation">
+                                <form class="form-valide" action="#" method="post">
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-username">
+                                            Tên Khóa Tập <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" id="val-username" name="nameCourse" placeholder="Nhập tên khóa tập.." required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-suggestions">
+                                            Mô Tả <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <textarea class="form-control" id="val-suggestions" name="descriptionKT" rows="5" placeholder="Mô tả gì trong này.." required></textarea>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-currency">
+                                            Giá Tiền <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" id="val-currency" name="price" placeholder="0 VNĐ"required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-skill">
+                                            Tên CLB <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <select class="form-control" id="val-skill" @Html.DropDownList("idCLB")
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-skill">
+                                            <label for="cbxPT">
+                                                <input type="checkbox" id="cbxPT" onclick="EnableDisablePT(this)"/>
+                                                Thêm Huấn luyện viên(PT)
+                                            </label>
+                                        </label>
+                                        <div class="col-lg-6" >
+                                            <select class="form-control" id="ddlPT" disabled="disabled" @Html.DropDownList("idPT")
+                                                
+                                            </select> 
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-skill">
+                                            Thứ <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <select class="form-control" id="val-skill" @Html.DropDownList("idDOW")
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-skill">
+                                            Thời gian <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <select class="form-control" @Html.DropDownList("idTime") 
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-website">
+                                            Images <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            @Html.EditorFor(model => model.urlImg, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.urlImg, "", new { @class = "text-danger" })
+                                            <input type="file" name="fileUpload" id="fileUpload" accept="image/*" style="display:none;" />
+                                            <input type="button" id="btnUpload" value="Chọn" class="btn btn-success" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-username">
+                                            Ngày bắt đầu  <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input required type="date" name="startDay" placeholder="Ngày giờ....." />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-username">
+                                            Ngày kết thúc <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input required type="date" name="dueDay" placeholder="Ngày giờ....." />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-8 ml-auto">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #/ container -->
+    </div>
+    <!--**********************************
+        Content body end
+    ***********************************-->
+</body>
+
+@section upload
+ {
+    <script>
+        $(function () {
+            $('#btnUpload').click(function () {
+                $('#fileUpload').trigger('click');
+            });
+        });
+
+        $('#fileUpload').change(function () {
+            if (window.FormData !== undefined) {
+                var fileUpload = $('#fileUpload').get(0);
+                var files = fileUpload.files;
+                var formData = new FormData();
+                formData.append('file', files[0]);
+                $.ajax(
+                    {
+                        type: 'POST',
+                        url: '/Admin/ProcessUpload',
+                        contentType: false,
+                        processData: false,
+                        data: formData,
+                        success: function (urlImage) {
+                            $('#pictureUpload').attr('src', urlImage);
+                            $('#urlImg').val(urlImage);
+                        },
+                        error: function (err) {
+                            alert('Error ', err.statusText);
+                        }
+                    });
+            }
+        });
+    </script>
+}
+<script type="text/javascript">
+    function EnableDisablePT(cbxPT) {
+        var ddlPT_temp = document.getElementById("ddlPT");
+        ddlPT_temp.disabled = cbxPT.checked ? false : true;
+        if (!ddlPT_temp.disabled) {
+            ddlPT_temp.focus();
+        }
+    }
+</script>

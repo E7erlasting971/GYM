@@ -1,0 +1,199 @@
+﻿@model IEnumerable<DOAN_WEB_GYM.Models.CLB>
+@{
+    ViewBag.Title = "CLB";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Modals | SHARED ON THEMELOCK.COM</title>
+    <meta name="keywords" content="HTML5 Admin Template" />
+    <meta name="description" content="Porto Admin - Responsive HTML5 Template">
+    <meta name="author" content="okler.net">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css" />
+    <link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+
+    <link rel="stylesheet" href="assets/vendor/pnotify/pnotify.custom.css" />
+
+    <link rel="stylesheet" href="assets/stylesheets/theme.css" />
+
+    <link rel="stylesheet" href="assets/stylesheets/skins/default.css" />
+
+    <link rel="stylesheet" href="assets/stylesheets/theme-custom.css">
+    <link href="@Url.Content("~/Content/Site.css") " rel="stylesheet" type="text/css" />
+
+    <style>
+        .panel-default {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border: 2px solid rgba(255,255,255,.18);
+            box-shadow: 0 0 0.4rem rgb(0 0 0 / 13%);
+            border-radius: 1rem;
+            transform: translateY(0);
+        }
+
+            .panel-default:hover {
+                transform: translateY(-20px);
+                border: 2px solid #e31c25 !important;
+                transition: all 0.5s;
+            }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+            <h4 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase font-weight-bold">CLB</h4>
+            <div class="d-inline-flex">
+                <p class="m-0 text-white"><a class="text-white" href="@Url.Action("Index", "GYM")">Trang Chủ</a></p>
+                <p class="m-0 text-white px-2">/</p>
+                <p class="m-0 text-white">CLB</p>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+    <!-- GYM Feature Start -->
+    <h2 class="section-title">TẬP LUYỆN Ở CÁC CÂU LẠC BỘ GẦN BẠN </h2>
+    <div class="nd">
+        <br>
+        <h5>Hệ thống phòng tập gym và yoga của WIBU GYM có mặt khắp các quận TPHCM.</h5>
+        <h5>Lựa chọn phòng tập gần bạn nhất để có thể tập luyện dễ dàng và tiết kiệm thời gian.</h5>
+        <br />
+        @*  <select>
+            <option>Chọn quận gần bạn</option>
+            <option>Quận 1</option>
+            <option>Quận 2</option>
+            <option>Quận 3</option>
+            <option>Quận Bình Thạnh</option>
+            <option>Quận 9</option>
+            <option>Quận Gò Vấp</option>
+            <option>Quận 7</option>
+            <option>Quận Tân Bình</option>
+            <option>Quận Phú Nhuận</option>
+            <option>Quận 12</option>
+        </select>*@
+        <hr />
+        <br />
+        @using (Html.BeginForm())
+        {
+            <p>
+                <b>Tên Câu Lạc Bộ: </b> @Html.TextBox("TimKiemCLB", "")
+                <input style="border:#222222;; border-width:10px; border-style:solid;border-radius:35px;background-color:#222222;; color:white;width:220px;" type="submit" value="Search" />
+            </p>
+        }
+        <br />
+    </div><div class="row" style="width: 80%; margin:auto">
+
+    <table>
+        @foreach (var item in Model)
+        {
+
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="panel panel-default" style="margin-bottom: 2rem; padding: 1rem; border: 2px solid rgba(255,255,255,.18); box-shadow: 0 0 0.4rem rgb(0 0 0 / 13%); border-radius: 1rem">
+                    <div class="panel panel-heading" style="text-align:center;">
+                        <a> <strong><h3>@item.CLBName</h3></strong></a>
+                    </div>
+
+                    <div class="panel-body" style="text-align:center; width: 80%; margin:auto">
+                        <a><p> <img onclick="@Url.Action("CTCLB", new { id = item.idCLB})" src="@item.urlImg" alt="Hình thumnail" style="width: 100%;  border-radius: 1rem;" /></p> </a>
+                        <center>
+                            <p style="text-align: justify-all; border: #b81f26; border-width: 5px; border-style: solid; border-radius: 35px; background-color: #b81f26; width: 250px"><strong> @Html.ActionLink("XEM", "CTCLB", new { id = item.idCLB })</strong></p>
+                        </center>
+                        <p style="text-align: left; height: 72px"><strong>Địa Chỉ: </strong>@item.addressCLB</p>
+                        <p style="text-align:left;"><strong>Số Điện Thoại: </strong>@item.phoneNumber</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </table>
+    <br />
+
+</div>
+ 
+    <!-- GYM Feature End -->
+    <!-- Testimonial Start -->
+    <div class="container-fluid position-relative testimonial mt-5" style="margin-bottom: 90px;">
+        <div class="container">
+            <div class="row px-3 align-items-center">
+                <div class="col-md-6 bg-secondary">
+                    <div class="d-flex align-items-center px-3" style="min-height: 450px;">
+                        <div id="carouselId" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselId" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselId" data-slide-to="1"></li>
+                                <li data-target="#carouselId" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner" role="listbox">
+                                <div class="carousel-item active">
+                                    <div class="d-flex align-items-center mb-4 text-white">
+                                        <img width="80" height="80" class="rounded-circle bg-dark p-2" src="~/Content/Images/testimonial-1.jpg"
+                                             alt="Image">
+                                        <div class="pl-4">
+                                            <h4 class="text-primary">Hồ Văn Thịnh</h4>
+                                            <p class="m-0">Thành Viên</p>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-text position-relative border bg-dark text-white mb-5 p-4">
+                                        Tập luyện để có cơ thể khỏe mạnh chạy deadline
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="d-flex align-items-center mb-4 text-white">
+                                        <img width="80" height="80" class="rounded-circle bg-dark p-2" src="~/Content/Images/testimonial-2.jpg"
+                                             alt="Image">
+                                        <div class="pl-4">
+                                            <h4 class="text-primary">Trương Văn Thịnh</h4>
+                                            <p class="m-0">Thành Viên</p>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-text position-relative border bg-dark text-white mb-5 p-4">
+                                        Hãy siêng năng tập luyện để có một cơ thể đẹp hơn
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="d-flex align-items-center mb-4 text-white">
+                                        <img width="80" height="80" class="rounded-circle bg-dark p-2" src="~/Content/Images/testimonial-3.jpg"
+                                             alt="Image">
+                                        <div class="pl-4">
+                                            <h4 class="text-primary">Ngô Văn Thịnh</h4>
+                                            <p class="m-0">Thành Viên</p>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-text position-relative border bg-dark text-white mb-5 p-4">
+                                        Muốn khỏe đẹp thì hãy tập thể thao
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="pl-md-3 d-none d-md-block">
+                        <h4 class="text-primary">Lời Chứng Thực</h4>
+                        <h2 class="display-4 mb-4 text-black front-weight-bold">Nội Dung</h2>
+                        <p class="m-0 text-black">
+                            Thực đơn cho người mới tập gym thường bắt đầu với khẩu phần ăn hợp lý.
+                            Thế nhưng, không phải thực phẩm nào cũng nên đưa vào thực đơn và
+                            không nhất thiết phải một loại thức ăn đó lặp lại quá nhiều lần.
+                            Cholesterol có trong trứng và nếu ăn nhiều trứng thì cholesterol sẽ tăng cao trong máu.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+</body>

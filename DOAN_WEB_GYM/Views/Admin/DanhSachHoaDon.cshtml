@@ -1,0 +1,111 @@
+﻿@model IEnumerable<DOAN_WEB_GYM.Models.DangKyKhoaTap>
+@{ ViewBag.Title = "DanhSachHoaDon";
+                Layout = "~/Views/Shared/_LayoutAdmin.cshtml"; }
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <meta charset="UTF-8">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="~/Scripts/lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+    <!--@*=========================*@-->
+    @*  <link href="@Url.Content("~/Content/css/style.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.Content("~/Content/font-awesomemin.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.Content("~/Content/css/style.css.map")" rel="stylesheet" type="text/css" />*@
+    <link href="~/Content/css/style1.css" rel="stylesheet" />
+    <link href="~/Content/css/style2.css" rel="stylesheet" />
+    <link href="~/Content/font-awesomemin.css" rel="stylesheet" />
+
+</head>
+<body>
+    <!--**********************************
+           Content body start
+       ***********************************-->
+    <div class="content-body">
+
+        <div class="row page-titles mx-0">
+            <div class="col p-md-0">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+                </ol>
+            </div>
+        </div>
+        <!-- row -->
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Data Table</h4>
+                            <div class="table-responsive">
+                                <table style="width:100%" class="table table-striped table-bordered zero-configuration">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:20%">Mã Hóa Đơn</th>
+                                            <th style="width:20%">Tên Khách Hàng</th>
+                                            <th style="width:20%">Ngày Đặt</th>
+                                            <th style="width:20%">Status</th>
+                                            <th style="width:20%">Tùy Chọn</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                        <tr>
+                                            <td>@Html.DisplayFor(modelItem => item.idInvoice)</td>
+                                            @*   <td>@Html.DisplayFor(modelItem => item.TaiKhoanKH.fullName)</td>*@
+                                            <td>@Html.DisplayFor(modelItem => item.TaiKhoanKH.fullName)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.idDate)</td>
+                                            @*<td>@Html.DisplayFor(modelItem => item.status)</td>*@
+                                            @if (item.status == true)
+                                            {
+                                                <td>Đã Thanh Toán</td>
+                                            }
+                                            else if (item.status == false)
+                                            {
+                                                <td>Chờ Thanh Toán</td>
+                                            }
+                                            else
+                                            {
+                                                <td>Đã Hết Hạn</td>
+                                            }
+                                            <td>@Html.ActionLink("Trạng Thái", "SuaDanhSachHoaDon", new { id = item.idInvoice }) </td>
+
+                                        </tr>
+                                        }
+                                        </tbody>
+
+
+
+                                    <tfoot>
+                                        <tr>
+                                            <th style="width:20%">Mã Hóa Đơn</th>
+                                            <th style="width:20%">Tên Khách Hàng</th>
+                                            <th style="width:20%">Ngày Đặt</th>
+                                            <th style="width:20%">Status</th>
+                                            <th style="width:20%">Tùy Chọn</th>
+                                        </tr>
+
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- #/ container -->
+    </div>
+    <!--**********************************
+        Content body end
+    ***********************************-->
+</body>

@@ -1,0 +1,129 @@
+﻿
+@{ ViewBag.Title = "LichHoc";
+                Layout = "~/Views/Shared/_LayoutUser.cshtml"; }
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="~/Scripts/lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+    <!--@*=========================*@-->
+    <link href="@Url.Content("~/Content/Site.css") " rel="stylesheet" type="text/css" />
+
+    <style>
+        .card:hover{
+            transform: translateY(-20px);
+            transition: all 0.5s;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+            <h4 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase font-weight-bold">Chúng Tôi</h4>
+            <div class="d-inline-flex">
+                <p class="m-0 text-white"><a class="text-white" href="">Trang Chủ</a></p>
+                <p class="m-0 text-white px-2">/</p>
+                <p class="m-0 text-white">Chúng Tôi</p>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+    <!-- About Start -->
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <img class="img-fluid mb-4 mb-lg-0" src="~/Content/Images/about.jpg" alt="Image">
+            </div>
+            <div class="col-lg-6">
+                <h2 class="display-4 font-weight-bold mb-4">WibuGym</h2>
+                <p">
+                    Website WibuGym giúp khách hàng rõ về các khóa tập có tại phòng tập gym, khách hàng
+                    có thể tìm hiểu rõ về khóa tập cũng như thời gian tập luyện và lựa chọn được những khóa
+                    tập phù hợp với bản thân, có thể xem chi tiết khóa tập và chọn được người hướng dẫn phù hợp với bản thân.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Team Start -->
+    <div class="container pt-5 team">
+        <div class="d-flex flex-column text-center mb-5">
+            <h4 class="text-primary font-weight-bold">Our Trainers</h4>
+            <h4 class="display-4 font-weight-bold">Meet Our Expert Trainers</h4>
+        </div>
+        <div class="row">
+            <!--<div class="col-lg-3 col-md-6 mb-5">
+            <div class="card border-0 bg-secondary text-center text-white">
+                 <img class="card-img-top" src="~/Content/Images/team-1.jpg" alt="">-->
+            @*<img class="slide-image" src="~/Content/Images/team-1.jpg" alt="">*@
+            <!--<div class="card-social d-flex align-items-center justify-content-center">
+                    </div>
+                    <div class="card-body bg-secondary">
+                        <h4 class="card-title text-primary">Ngô Thế Bách</h4>
+                        <p class="card-text">Trainer</p>
+                    </div>
+                </div>
+            </div>-->
+            <div class="col-lg-3 col-md-6 mb-5">
+                <div class="card border-0 bg-secondary text-center text-white">
+                    @* <img class="card-img-top" src="img/team-2.jpg" alt="">*@
+                    <img class="slide-image" src="~/Content/Images/team-2.jpg" alt="">
+                    <div class="card-social d-flex align-items-center justify-content-center">
+                    </div>
+                    <div class="card-body bg-secondary">
+                        <h4 class="card-title text-primary">Hồ Đăng Dũng</h4>
+                        <p class="card-text">Trainer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <div class="card border-0 bg-secondary text-center text-white">
+                    @* <img class="card-img-top" src="img/team-3.jpg" alt="">*@
+                    <img class="slide-image" src="~/Content/Images/team-3.jpg" alt="">
+                    <div class="card-social d-flex align-items-center justify-content-center">
+                    </div>
+                    <div class="card-body bg-secondary">
+                        <h4 class="card-title text-primary">Lý Quốc Thịnh</h4>
+                        <p class="card-text">Trainer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <div class="card border-0 bg-secondary text-center text-white">
+                    @* <img class="card-img-top" src="img/team-4.jpg" alt="">*@
+                    <img class="slide-image" src="~/Content/Images/team-4.jpg" alt="">
+                    <div class="card-social d-flex align-items-center justify-content-center">
+                    </div>
+                    <div class="card-body bg-secondary">
+                        <h4 class="card-title text-primary">Trương Ngọc Thành</h4>
+                        <p class="card-text">Trainer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <div class="card border-0 bg-secondary text-center text-white">
+                    @* <img class="card-img-top" src="img/team-3.jpg" alt="">*@
+                    <img class="slide-image" src="~/Content/Images/team-1.jpg" alt="">
+                    <div class="card-social d-flex align-items-center justify-content-center">
+                    </div>
+                    <div class="card-body bg-secondary">
+                        <h4 class="card-title text-primary">Ngô Thế Thịnh</h4>
+                        <p class="card-text">Trainer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+</body>
+</html>

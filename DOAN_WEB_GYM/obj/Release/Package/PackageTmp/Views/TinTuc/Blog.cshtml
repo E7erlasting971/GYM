@@ -1,0 +1,128 @@
+﻿@model IEnumerable<DOAN_WEB_GYM.Models.TinTuc>
+@using System.Text.RegularExpressions;
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+    string StripHTML(string input)
+    {
+        return Regex.Replace(input, "<.*?>", String.Empty);
+    }
+
+}
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>... </text>
+    }
+}
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Modals | SHARED ON THEMELOCK.COM</title>
+    <meta name="keywords" content="HTML5 Admin Template" />
+    <meta name="description" content="Porto Admin - Responsive HTML5 Template">
+    <meta name="author" content="okler.net">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css" />
+    <link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+
+    <link rel="stylesheet" href="assets/vendor/pnotify/pnotify.custom.css" />
+
+    <link rel="stylesheet" href="assets/stylesheets/theme.css" />
+
+    <link rel="stylesheet" href="assets/stylesheets/skins/default.css" />
+
+    <link rel="stylesheet" href="assets/stylesheets/theme-custom.css">
+    <link href="@Url.Content("~/Content/Site.css") " rel="stylesheet" type="text/css" />
+
+    <style>
+        .row .panel {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border: 2px solid rgba(255,255,255,.18);
+            box-shadow: 0 0 0.4rem rgb(0 0 0 / 13%);
+            border-radius: 1rem;
+            transform: translateY(0);
+        }
+
+            .row .panel:hover {
+                transform: translateY(-30px);
+                border: 2px solid #e31c25;
+                transition: all 0.5s;
+            }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+            <h4 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase font-weight-bold">Tin Tức</h4>
+            <div class="d-inline-flex">
+                <p class="m-0 text-white"><a class="text-white" href="">Tin Tức</a></p>
+                <p class="m-0 text-white px-2">/</p>
+                <p class="m-0 text-white">Blog</p>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+    <!-- Blog Start -->
+    <div class="container pt-5">
+        <div class="d-flex flex-column text-center mb-5">
+            <h4 class="text-primary font-weight-bold">BLOG</h4>
+            <h4 class="display-4 font-weight-bold">Bài Viết Mới Nhất</h4>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-6 col-md-5 blog-item">
+                    <div class="panel panel-default">
+                        <img class="slide-image" src="@item.urlImg" alt="" style="width: 100%; border-radius: 0.8rem; object-fit: cover; height: 377px">
+                        <div class="py-3">
+                            <h3 class="font-weight-bold text-center"> @item.Title</h3>
+                            <h5 class="font-weight-bold" style="color: #afaaaa; font-size: 14px; font-family: Arial; ">@Html.Raw(StripHTML(item.description).Substring(0, 100))...</h5>
+                        </div>
+                        @Html.ActionLink("Xem Thêm", "Details_Blog", new { id = item.idType })
+                    </div>
+                </div>
+            }
+
+            <div class="col-lg-12">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center mb-4">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+</body>

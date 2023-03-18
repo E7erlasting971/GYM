@@ -1,0 +1,79 @@
+﻿@model DOAN_WEB_GYM.Models.TinTuc
+
+@{
+    ViewBag.Title = "Details_Blog";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Modals | SHARED ON THEMELOCK.COM</title>
+    <meta name="keywords" content="HTML5 Admin Template" />
+    <meta name="description" content="Porto Admin - Responsive HTML5 Template">
+    <meta name="author" content="okler.net">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css" />
+    <link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+
+    <link rel="stylesheet" href="assets/vendor/pnotify/pnotify.custom.css" />
+
+    <link rel="stylesheet" href="assets/stylesheets/theme.css" />
+
+    <link rel="stylesheet" href="assets/stylesheets/skins/default.css" />
+
+    <link rel="stylesheet" href="assets/stylesheets/theme-custom.css">
+    <link href="@Url.Content("~/Content/Site.css") " rel="stylesheet" type="text/css" />
+
+    <style>
+        .container-fluid {
+            background-image: url(https://citigym.com.vn/storage/uploads/bi-quyet-giam-can-1.jpg);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            object-fit: cover;
+        }
+
+        .dl-horizontal .content {
+            line-height: 2rem;
+        }
+
+        .dl-horizontal img {
+            width: 50%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+            <h4 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase font-weight-bold">Tin Tức</h4>
+            <div class="d-inline-flex">
+                <p class="m-0 text-white"><a class="text-white" href="">Tin Tức</a></p>
+                <p class="m-0 text-white px-2">/</p>
+                <p class="m-0 text-white">Kiến Thức Sức Khỏe</p>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+    <hr />
+    <h2 class="container" style="align-items: center; display: flex; border: #b81f26; border-width: 5px; border-style: solid; background-color: #b81f26; color: black; width: 1550px; height: 80px; color: aliceblue;">Tin Tức > Kiến Thức Sức Khỏe</h2>
+    <hr />
+    <div>
+        <dl class="dl-horizontal" style="max-width:960px;margin:0 auto;">
+            <dd>
+                @Html.Raw(Model.description);
+            </dd>
+        </dl>
+    </div>
+
+</body>

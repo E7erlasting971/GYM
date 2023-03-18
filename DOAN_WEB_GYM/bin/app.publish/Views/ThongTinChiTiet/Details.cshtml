@@ -1,0 +1,114 @@
+﻿
+
+
+
+@*                    FILE NÀY BỎ NHÉ, FILE THỪA KHÔNG LIÊN QUAN                      *@
+
+
+
+@model IEnumerable<DOAN_WEB_GYM.Models.KhoaTap>
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Modals | SHARED ON THEMELOCK.COM</title>
+    <meta name="keywords" content="HTML5 Admin Template" />
+    <meta name="description" content="Porto Admin - Responsive HTML5 Template">
+    <meta name="author" content="okler.net">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css" />
+    <link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+
+    <link rel="stylesheet" href="assets/vendor/pnotify/pnotify.custom.css" />
+
+    <link rel="stylesheet" href="assets/stylesheets/theme.css" />
+
+    <link rel="stylesheet" href="assets/stylesheets/skins/default.css" />
+
+    <link rel="stylesheet" href="assets/stylesheets/theme-custom.css">
+    <link href="@Url.Content("~/Content/Site.css") " rel="stylesheet" type="text/css" />
+
+    <link href="@Url.Content("~/Content/Login.css") " rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+            <h4 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase font-weight-bold">Khóa Tập</h4>
+            <div class="d-inline-flex">
+                <p class="m-0 text-white"><a class="text-white" href="@Url.Action("Index", "GYM")">Trang Chủ</a></p>
+                <p class="m-0 text-white px-2">/</p>
+                <p class="m-0 text-white">Khóa Tập</p>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+    <!-- GYM Feature Start -->
+    <h2 class="section-title">CÁC KHÓA TẬP CỦA CHÚNG TÔI </h2>
+    <div class="content_details">
+        <div class="slider-row">
+            <div class="details_content">
+                @*<div class="col-4">
+                        <a href="/ChiTietKhoaTap/rpm_coure">
+                            <img src="~/Content/Images/rpm-header.jpg" alt="Image" width="350" height="200">
+                            <div class="item-gym">
+                                <div style="text-align: center">
+                                    <a href="/ChiTietKhoaTap/rpm_coure" class="title" style="font-weight: bold">RPM</a>
+                                    <div class="icon-list">
+                                        <i class="remixicon-map-pin-fill"></i>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>*@
+
+
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="panel panel-default">
+                                <div class="panel panel-heading" style="text-align:center;">
+                                    <br /> <strong><b>@item.nameCourse</b></strong>
+
+                                </div>
+
+                                <div class="panel-body" style="background-size :auto">
+
+                                    <a href="/TaiKhoan/DangNhap"> <p><img src="@item.urlImg" alt="Image" width="100%" height="300vh" style="background-size:100%"></p> </a>
+                                    @*<p><strong>Ngày Bắt Đầu: </strong>@item.startDay</p>
+                                        <p><strong>Ngày Kết Thúc: </strong>@item.dueDay</p>
+                                        <p><strong>Mô Tả: </strong>@item.descriptionKT</p>
+                                        <p><strong>Giá: </strong>@item.price</p>*@
+                                </div>
+                                <td>
+                                    @Html.ActionLink("Details", "ChiTietKhoaTap", new { id = item.idCourse })
+
+                                </td>
+
+
+                            </div>
+                        </div>
+                    }
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <!-- GYM Feature End -->
+</body>

@@ -1,0 +1,114 @@
+﻿@model DOAN_WEB_GYM.Models.KhoaTap
+
+@{ ViewBag.Title = "ChiTietKhoaTap";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <meta charset="UTF-8">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="~/Scripts/lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+    <!--@*=========================*@-->
+    @* <link href="@Url.Content("~/Content/css/style.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.Content("~/Content/font-awesomemin.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.Content("~/Content/css/style.css.map")" rel="stylesheet" type="text/css" />*@
+    <link href="~/Content/css/style1.css" rel="stylesheet" />
+    <link href="~/Content/css/style2.css" rel="stylesheet" />
+    <link href="~/Content/font-awesomemin.css" rel="stylesheet" />
+</head>
+<body>
+    <!--**********************************
+           Content body start
+       ***********************************-->
+    <div class="content-body">
+
+        <div class="row page-titles mx-0">
+            <div class="col p-md-0">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+                </ol>
+            </div>
+        </div>
+        <!-- row -->
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-validation">
+                                <form class="form-valide" action="#" method="post">
+                                    @Html.AntiForgeryToken()
+
+                                    <div class="form-horizontal">
+
+                                        <h2>Details</h2>
+
+                                        <div>
+                                            <h4>Khóa Tập</h4>
+                                            <hr />
+                                            <dl class="dl-horizontal">
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.nameCourse)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.nameCourse)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.startDay)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.startDay)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.dueDay)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.dueDay)
+                                                </dd>
+
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.price)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.price)
+                                                </dd>
+                                                <dt>
+                                                    @Html.DisplayNameFor(model => model.descriptionKT)
+                                                </dt>
+
+                                                <dd>
+                                                    @Html.DisplayFor(model => model.descriptionKT)
+                                                </dd>
+
+
+
+                                            </dl>
+                                        </div>
+                                        <p>
+                                          
+                                            @Html.ActionLink("Back to List", "Details")
+                                        </p>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
